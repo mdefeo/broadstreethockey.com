@@ -1,0 +1,9 @@
+{{!< default}}
+
+{{#get 'posts' include="comments,authors" }}
+{{#foreach posts }}
+
+  {{> "post-card"}}
+
+{{/foreach}}
+{{/get}}

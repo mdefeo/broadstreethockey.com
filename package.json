@@ -1,0 +1,200 @@
+{
+    "name": "bsh",
+    "description": "New front end for Broad Street Hockey, post Vox and based on the Casper theme.",
+    "demo": "https://www.broadstreethockey.com/",
+    "version": "0.1.2",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "pretest": "gulp build",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
+        "postship": "git fetch && gulp release"
+    },
+    "author": {
+        "name": "Marcello De Feo",
+        "email": "marcellodefeo@outlook.com",
+        "url": "https://marcellodefeo.com/"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Sports",
+            "Hockey",
+            "Flyers"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mdefeo/bsh.git"
+    },
+    "bugs": "https://github.com/mdefeo/bsh/issues",
+    "devDependencies": {
+        "@babel/core": "^7.21.3",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-react": "^7.18.6",
+        "@tryghost/release-utils": "0.8.1",
+        "autoprefixer": "10.4.7",
+        "babel": "^6.23.0",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.1.2",
+        "babel-loader": "^9.1.2",
+        "babel-plugin-transform-runtime": "^6.1.2",
+        "babel-preset-es2015": "^6.1.2",
+        "babel-preset-stage-0": "^6.1.2",
+        "babel-runtime": "^5.8.0",
+        "beeper": "2.1.0",
+        "bulma": "^0.9.4",
+        "css-loader": "^6.7.3",
+        "cssnano": "5.1.12",
+        "eslint": "^8.37.0",
+        "gscan": "4.36.1",
+        "gulp": "4.0.2",
+        "gulp-concat": "2.6.1",
+        "gulp-livereload": "4.0.2",
+        "gulp-postcss": "9.0.1",
+        "gulp-terser": "^2.1.0",
+        "gulp-uglify": "3.0.2",
+        "gulp-zip": "5.1.0",
+        "inquirer": "8.2.4",
+        "node-sass": "^8.0.0",
+        "postcss": "^8.4.21",
+        "postcss-color-mod-function": "3.0.3",
+        "postcss-easy-import": "4.0.0",
+        "postcss-loader": "^7.1.0",
+        "pump": "3.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass-loader": "^13.2.1",
+        "style-loader": "^3.3.2",
+        "webpack": "^5.76.2",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.13.1",
+        "webpack-stream": "^7.0.0"
+    },
+    "browserslist": [
+        "defaults"
+    ],
+    "config": {
+        "posts_per_page": 25,
+        "image_sizes": {
+            "xxs": {
+                "width": 30
+            },
+            "xs": {
+                "width": 100
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 600
+            },
+            "l": {
+                "width": 1000
+            },
+            "xl": {
+                "width": 2000
+            }
+        },
+        "card_assets": true,
+        "custom": {
+            "navigation_layout": {
+                "type": "select",
+                "options": [
+                    "Logo on cover",
+                    "Logo in the middle",
+                    "Stacked"
+                ],
+                "default": "Logo on cover"
+            },
+            "title_font": {
+                "type": "select",
+                "options": [
+                    "Modern sans-serif",
+                    "Elegant serif"
+                ],
+                "default": "Modern sans-serif"
+            },
+            "body_font": {
+                "type": "select",
+                "options": [
+                    "Modern sans-serif",
+                    "Elegant serif"
+                ],
+                "default": "Elegant serif"
+            },
+            "show_publication_cover": {
+                "type": "boolean",
+                "default": true,
+                "group": "homepage"
+            },
+            "header_style": {
+                "type": "select",
+                "options": [
+                    "Center aligned",
+                    "Left aligned",
+                    "Hidden"
+                ],
+                "default": "Center aligned",
+                "group": "homepage"
+            },
+            "feed_layout": {
+                "type": "select",
+                "options": [
+                    "Classic",
+                    "Grid",
+                    "List"
+                ],
+                "default": "Classic",
+                "group": "homepage"
+            },
+            "color_scheme": {
+                "type": "select",
+                "options": [
+                    "Light",
+                    "Dark",
+                    "Auto"
+                ],
+                "default": "Light"
+            },
+            "post_image_style": {
+                "type": "select",
+                "options": [
+                    "Wide",
+                    "Full",
+                    "Small",
+                    "Hidden"
+                ],
+                "default": "Wide",
+                "group": "post"
+            }
+        }
+    },
+    "renovate": {
+        "extends": [
+            "@tryghost:theme"
+        ]
+    },
+    "dependencies": {
+        "crypto-js": "^4.1.1",
+        "dotenv": "^16.0.3",
+        "dotenv-webpack": "^8.0.1",
+        "postcss-discard-duplicates": "^6.0.0"
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
+<head>
+
+    {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
+    <title>{{meta_title}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
+    this will take care of caching and cache-busting automatically --}}
+    <link href="{{asset "built/aos.css"}}" rel="stylesheet">
+    <link href="{{asset "built/bootstrap.min.css"}}" rel="stylesheet">
+    <link href="{{asset "built/bootstrap-icons.css"}}" rel="stylesheet">
+    <link href="{{asset "built/boxicons.min.css"}}" rel="stylesheet">
+    <link href="{{asset "built/glightbox.min.css"}}" rel="stylesheet">
+    <link href="{{asset "built/remixicon.css"}}" rel="stylesheet">
+    <link href="{{asset "built/swiper-bundle.min.css"}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset "built/mdb.min.css"}}" />
+    <link rel="stylesheet" href="{{asset "built/chorus.css"}}" />
+    <link rel="stylesheet" href="{{asset "built/hub_pages.css"}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
+    it should always be the last tag before the closing head tag --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}} is-head-{{#match @custom.navigation_layout "Logo on cover"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}{{#if @custom.show_publication_cover}} has-cover{{/if}}">
+<main>
+
+    <header id="header" class="gh-head outer{{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
+        <div class="container d-flex align-items-center gh-head-inner inner">            
+            <div class="logo-wrapper">
+                <a class="navbar-brand logo me-auto gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}" class="img-fluid">
+                    {{else}}
+                        {{@site.title}}
+                    {{/if}}
+                </a>
+                <span>Friends don’t let friends experience Flyers hockey alone</span>
+            </div>
+            {{navigation}}
+            {{#unless @site.members_enabled}}
+                {{#match @custom.navigation_layout "Stacked"}}
+                    <button class="gh-search gh-icon-btn hide-mobile" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                {{/match}}
+            {{/unless}}
+            <div class="gh-head-brand hide-mobile">
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                <button class="gh-burger"></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container py-4 site-content">
+        {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
+        <main class="my-5"> 
+            <div class="container">
+                <!--Top Story-->
+                {{#is "home"}}
+                    {{> "hero"}}
+                {{/is}}
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 col-lg-9 mb-4">
+                        <!--Section: Content--> 
+                        <section class="latest-content">
+                            {{{body}}}
+                        </section>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <!--Section: Sidebar-->
+                        {{#is "home"}}
+                            {{> featured-sidebar heading="Featured" filter="id:-{{id}}+tag:{{primary_tag.slug}}"}}
+                        {{else post}}
+                            {{> related-sidebar heading="Related"}}
+                        {{else}}
+                            {{> latest-sidebar heading="Latest"}}
+                        {{/is}}
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    {{!-- The global footer at the very bottom of the screen --}}
+
+
+  <footer id="footer" class="site-footer outer">
+      
+    <div class="footer-top inner">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg3 col-md-3 footer-contact">
+            <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}} logo me-auto" href="{{@site.url}}">
+                {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" class="img-fluid">
+                {{else}}
+                    {{@site.title}}
+                {{/if}}
+            </a>
+          </div>
+            <div class="col-lg2 col-md-2"></div>
+          <div class="col-lg7 col-lg-7 col-md-12 footer-links">
+            <div class="row">
+                 <div class="col-lg12 col-md-12 social-links">
+                    {{navigation type="secondary"}}
+                    <div class="social-icons">
+                        <span class="nav-user">
+                            <a class="gh-head-button" href="#/portal/signin" data-portal="signin"><i class="fa fa-user">Sign In</i></a>
+                        </span>
+                        <span class="nav-twitter">
+                            <a href="https://twitter.com/BroadStHockey" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">Twitter</i></a> 
+                        </span>
+                        <span class="nav-facebook">
+                            <a href="https://www.facebook.com/broadsthockey" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook">Facebook</i></a>
+                        </span>
+                        <span class="nav-tiktok">
+                            <a href="https://www.tiktok.com/@broadstreethockey" target="_blank" rel="noopener noreferrer"><i class="fa fa-tiktok">TikTok</i></a> 
+                        </span>
+                    </div>               
+                </div>
+            </div>
+            <div class="row">
+                <p>Gambling Problem? Call (800) 327-5050 or visit gamblinghelpline.ma.org (MA), Call 877-8-HOPENY/text HOPENY (467369) (NY),</p>                
+                <p>If you or someone you know has a gambling problem, crisis counseling and referral services can be accessed by calling 1-800-GAMBLER (1-800-426-2537) (CO / IL / IN / LA / MD / MI / NJ / OH / PA / TN / WV / WY), 1-800-NEXT STEP (AZ), 1-800-522-4700 (KS / NH), 888-789-7777/visit ccpg.org (CT), 1-800-BETS OFF (IA), visit OPGR.org (OR), or 1-888-532-3500 (VA).</p>
+                <p>Odds and lines subject to change. 21+ (18+ NH/WY). Physically present in AZ / CO / CT / IL / IN / IA / KS / LA (select parishes) / MA / MD / MI / NH / NJ / NY / OH / OR / PA / TN / VA / WV / WY only. Void in ONT. Eligibility restrictions apply. See terms at draftkings.com/sportsbook. On behalf of Boot Hill Casino & resort (KS).</p>
+            </div>
+            <div class="row">
+                <div class="col-lg12 col-md-12">
+                    <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}} All Rights Reserved.</section>
+                </div>
+            </div>
+
+          </div>    
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <div id="preloader"></div>
+
+</main>
+{{!-- /.viewport --}}
+
+
+{{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}
+<script src="{{asset "built/init.js"}}"></script>
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+
+</body>
+</html>
+ 
