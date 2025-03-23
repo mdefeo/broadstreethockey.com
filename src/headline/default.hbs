@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-title" content="Broad Street Hockey" />
+
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-MediumItalic-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Medium-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-BoldItalic-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Bold-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-MediumItalic-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Medium-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-BoldItalic-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Bold-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-SuperItalic-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Super-Web.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.vox-cdn.com/shared_fonts/unison/unison_base/nittigrotesk/nittigrotesk-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://use.typekit.net">
+    <meta id="chorus-fonts" data-cid="site/font_loader-1678395252_3230_75048" data-cdata='{"version":"1c5dba5203ab569c8e4b65c70e7b0c88","fonts_catalog":[{"slug":"sbn-druk","family":"Druk Text Web","weight":"500","style":"italic","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-MediumItalic-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-MediumItalic-Web.woff"},{"slug":"sbn-druk","family":"Druk Text Web","weight":"500","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Medium-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Medium-Web.woff"},{"slug":"sbn-druk","family":"Druk Text Web","weight":"700","style":"italic","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-BoldItalic-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-BoldItalic-Web.woff"},{"slug":"sbn-druk","family":"Druk Text Web","weight":"700","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Bold-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukText-Bold-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"500","style":"italic","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-MediumItalic-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-MediumItalic-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"500","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Medium-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Medium-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"700","style":"italic","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-BoldItalic-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-BoldItalic-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"700","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Bold-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Bold-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"900","style":"italic","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-SuperItalic-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-SuperItalic-Web.woff"},{"slug":"sbn-druk-wide","family":"Druk Text Wide Web","weight":"900","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Super-Web.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/sbn/druk/DrukTextWide-Super-Web.woff"},{"slug":"unison-nitti","family":"nitti-grotesk","weight":"400","style":"normal","woff2_url":"https://cdn.vox-cdn.com/shared_fonts/unison/unison_base/nittigrotesk/nittigrotesk-normal.woff2","woff_url":"https://cdn.vox-cdn.com/shared_fonts/unison/unison_base/nittigrotesk/nittigrotesk-normal.woff"}],"font_stylesheets":["https://fonts.voxmedia.com/unison/stylesheets/sbn.0289821fe196f0ced638117948a0d46f.css"],"font_tracker_stylesheets":[],"typekit_ids":[],"headline_balance_div_classes":"","headline_balance_fraction":1.0}'>
+
+
+    <link rel="stylesheet" href="{{asset "css/ghost-dynamic-dropdown.css"}}">
+    <link href="https://www.sbnation.com/style/community/202/group/8856/e5ca0fb62ebb75e36654cb4c83650692/hub_pages.css" data-chorus-theme="hub_pages" rel="stylesheet" media="all">
+    <link href="https://www.sbnation.com/style/community/202/group/8856/efe045c04f05005d10173a86f26a62aa/chorus.css" data-chorus-theme="chorus" rel="stylesheet" media="all">
+    <meta name="style-tools" content="https://www.sbnation.com/style/community/202/group/8856/18416334ee757b408b23718af635c434/tools.css">
+    <script src="https://cdn.concert.io/lib/concert-concierge.2.8.0.min.js" async></script>
+    <meta name="msvalidate.01" content="D385D0326A3AE144205C298DB34B4E94">
+    <meta name="description" content="Your best source for quality Philadelphia Flyers news, rumors, analysis, stats and scores from the fan perspective." />
+    <link rel="canonical" href="https://www.broadstreethockey.com/" />
+
+
+    <link rel="shortcut icon" href="https://cdn1.vox-cdn.com/uploads/blog/favicon/202/favicon-ce5d9b4e.ico">
+    <link rel="icon" type="image/png" href="https://cdn0.vox-cdn.com/uploads/blog/sbnu_logo_minimal/202/touch_icon_ipad_retina_broadstreethockey.com.minimal.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://cdn0.vox-cdn.com/uploads/blog/sbnu_logo_minimal/202/touch_icon_ipad_retina_broadstreethockey.com.minimal.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://cdn0.vox-cdn.com/uploads/blog/sbnu_logo_minimal/202/touch_icon_ipad_retina_broadstreethockey.com.minimal.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="https://cdn0.vox-cdn.com/uploads/blog/sbnu_logo_minimal/202/touch_icon_ipad_retina_broadstreethockey.com.minimal.png">
+    <meta name="msapplication-TileColor" content="#e85b31">
+    <meta name="theme-color" content="">
+    <script class="coral-script" src="https://sbnation.coral.coralproject.net/assets/js/count.js?v=1626303173" defer></script>
+    <link rel="alternate" type="application/rss+xml" title="Broad Street Hockey" href="/rss/index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Front Page" href="https://www.broadstreethockey.com/rss/front-page/index.xml" />
+
+
+
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}{{#is "tag"}}{{#if tag.feature_image}} is-head-transparent{{/if}}{{/is}}{{#match @custom.header_style "Accent color"}} is-head-brand{{/match}}{{#match @custom.header_style "Dark"}} is-head-dark{{/match}}">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="{{@site.url}}">
+                        {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}">
+                            {{#if @custom.white_publication_logo_for_transparent_header}}
+                                <img src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
+                            {{/if}}
+                        {{else}}
+                            {{@site.title}}
+                        {{/if}}
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                {{navigation}}
+                {{#unless @site.members_enabled}}
+                    {{#match @custom.navigation_layout "Stacked"}}
+                        <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    {{/match}}
+                {{/unless}}
+            </nav>
+
+            <div class="gh-head-actions">
+                {{#unless @site.members_enabled}}
+                    {{^match @custom.navigation_layout "Stacked"}}
+                        <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    {{/match}}
+                {{else}}
+                    <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    <div class="gh-head-members">
+                        {{#unless @member}}
+                            {{#unless @site.members_invite_only}}
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                            {{else}}
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                            {{/unless}}
+                        {{else}}
+                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
+                        {{/unless}}
+                    </div>
+                {{/unless}}
+            </div>
+        </div>
+    </header>
+
+    {{{body}}}
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            {{#if @site.members_enabled}}
+            {{#unless @member}}
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to {{@site.title}}</h3>
+                    {{#if @custom.email_signup_text}}
+                        <div class="gh-subscribe-description">{{@custom.email_signup_text}}</div>
+                    {{/if}}
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup">{{> "icons/email"}} Subscribe now</button>
+                </section>
+            {{/unless}}
+            {{/if}}
+
+            <nav class="gh-foot-menu">
+                {{navigation type="secondary"}}
+            </nav>
+
+            <div class="gh-copyright">
+                {{#unless @custom.footer_text}}
+                    {{@site.title}} © {{date format="YYYY"}}. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+                {{else}}
+                    {{@custom.footer_text}}
+                {{/unless}}
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+{{#is "post, page"}}
+    {{> "pswp"}}
+{{/is}}
+
+<script src="{{asset "js/ghost-dynamic-dropdown.js"}}"></script>
+<script src="{{asset "built/main.min.js"}}"></script>
+
+{{ghost_foot}}
+
+</body>
+
+</html>

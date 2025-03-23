@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
+<head>
+
+	{{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
+	<title>{{meta_title}}</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="{{asset "css/ghost-dynamic-dropdown.css"}}">
+	<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+	<link rel="shortcut icon" href="{{asset img/favicon.ico }}">
+	<link rel="icon" type="image/png" href="{{asset img/touch_icon_ipad_retina_broadstreethockey.com.minimal.png}}" sizes="96x96">
+	<link rel="icon" type="image/png" href="{{asset img/touch_icon_ipad_retina_broadstreethockey.com.minimal.png}}" sizes="192x192">
+	<link rel="apple-touch-icon" href="{{asset img/touch_icon_ipad_retina_broadstreethockey.com.minimal.png}}" sizes="180x180">
+	<meta name="msapplication-TileImage" content="{{asset img/touch_icon_ipad_retina_broadstreethockey.com.minimal.png}}">
+	<meta name="msapplication-TileColor" content="#e85b31">
+	<meta name="theme-color" content="#e85b31">
+
+	{{ghost_head}}
+
+</head>
+<body class="{{body_class}} is-head-{{#match @custom.navigation_layout "Logo on cover"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}{{#if @custom.show_publication_cover}} has-cover{{/if}}">
+<div class="viewport">
+
+	<header id="gh-head" class="gh-head outer{{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
+		<div class="gh-head-inner inner">
+			<div class="gh-head-brand">
+				<a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+					{{#if @site.logo}}
+						<img src="{{@site.logo}}" alt="{{@site.title}}">
+					{{else}}
+						{{@site.title}}
+					{{/if}}
+				</a>
+				<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+				<button class="gh-burger"></button>
+			</div>
+
+			<nav class="gh-head-menu">
+				{{navigation}}
+				{{#unless @site.members_enabled}}
+					{{#match @custom.navigation_layout "Stacked"}}
+						<button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+					{{/match}}
+				{{/unless}}
+			</nav>
+
+			<div class="gh-head-actions">
+				{{#unless @site.members_enabled}}
+					{{^match @custom.navigation_layout "Stacked"}}
+						<button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+					{{/match}}
+				{{else}}
+					<button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+					<div class="gh-head-members">
+						{{#unless @member}}
+							{{#unless @site.members_invite_only}}
+								<a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+								<a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+							{{else}}
+								<a class="gh-head-button" href="#/portal/signin" data-portal="signin">Sign in</a>
+							{{/unless}}
+						{{else}}
+							<a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
+						{{/unless}}
+					</div>
+				{{/unless}}
+			</div>
+		</div>
+	</header>
+
+	<div class="site-content">
+		{{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
+		{{{body}}}
+	</div>
+
+	<footer class="site-footer outer">
+		<div class="l-wrapper c-footer__wrapper">
+			<div class="c-footer__section c-footer__section-logo">
+				<a rel="nofollow" href="/" class="c-footer__logo-link">
+					<img src="https://cdn.vox-cdn.com/uploads/blog/sbnu_logo/202/large_Broad_Street_Hockey_Full.58762.png" class="">
+					<span class="u-hidden-text">Chorus</span>
+				</a>	
+			</div>
+			<div class="c-footer__section c-footer__section-links">
+				<ul class="u-list-dot-sep">
+					<li>
+						<a rel="nofollow" href="/fanposts">FanPosts</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/fanshots">FanShots</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/masthead">Masthead</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/community-guidelines">Community Guidelines</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://www.facebook.com/broadsthockey">Facebook</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.twitter.com/BroadStHockey">Twitter</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://www.youtube.com/sbnation">YouTube</a>
+					</li>
+				</ul>
+			</div>
+			<div class="c-footer__section c-footer__section-network">
+				<span class="c-footer__network-logo ">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 137.7" enable-background="new 0 0 1000 137.7" xml:space="preserve">
+						<title>Horizontal - White</title>
+						<path fill="#FFFFFF" d="M245.3,68.1c11.5,0,20.8-9.1,21.1-20.6c0-7.2,0-12.7,0-12.7C266.5,13.9,253,0,233.7,0h-95v137.7H234
+		c16.3,0,32.5-12.5,32.5-33.7V89.2C266.5,77.5,257,68.1,245.3,68.1z M216,98.6c0,1.7-1.3,3-3,3h-23.8v-15h23.6c1.8,0,3.2,1.5,3.2,3.2
+		c0,0,0,0,0,0V98.6z M216,46.2c0,1.8-1.5,3.3-3.3,3.3h-23.5V36.1h23.5c1.9,0,3.4,1.5,3.4,3.4L216,46.2z"></path>
+						<path fill="#FFFFFF" d="M127.7,42.8v-9.1c0-6.6-1.8-13-5.1-18.7l0.1-0.2C117,6,107.4,0.5,96.9,0h-0.1c-0.4,0-0.8,0-1.2,0H32.3
+		C14.5,0,0,14.5,0,32.3v18.7l0,0v8.8c0,14.9,12,26.9,26.9,26.9c0,0,0,0,0,0h46.9c1.9,0,3.4,1.5,3.4,3.5l0,0v8c0,1.9-1.6,3.5-3.5,3.5
+		H50.5v-6.6H0v10.2c0,6.2,1.8,12.3,5.1,17.5l-0.1,0.2c5.6,8.8,15.3,14.4,25.7,14.8h0.1c0.4,0,0.8,0,1.2,0h63.3
+		c17.8,0,32.3-14.4,32.3-32.3l0,0V86.8l0,0V76.4c0-14.9-12-26.9-26.9-26.9h0H53.9c-1.9,0-3.4-1.5-3.4-3.5l0,0v-6.5
+		c0-1.9,1.6-3.5,3.5-3.5h23.4v6.7H127.7z"></path>
+						<rect x="674.1" fill="#FFFFFF" width="50.5" height="137.7"></rect>
+						<polygon fill="#FFFFFF" points="664.4,0 549.2,0 549.2,36.3 581.6,36.3 581.6,137.7 632,137.7 632,36.3 664.4,36.3 "></polygon>
+						<path fill="#FFFFFF" d="M830.5,0h-62.8c-17.8,0-32.3,14.5-32.3,32.3v73.1c0,17.8,14.5,32.3,32.3,32.3h62.8
+		c17.8,0,32.3-14.5,32.3-32.3V32.3C862.8,14.5,848.4,0,830.5,0L830.5,0z M812.4,98.4c0,1.8-1.5,3.2-3.2,3.2h-20
+		c-1.8,0-3.2-1.5-3.2-3.2v-59c0-1.8,1.5-3.2,3.2-3.2h20c1.8,0,3.2,1.5,3.2,3.2V98.4z"></path>
+						<path fill="#FFFFFF" d="M951,0v49.7L915.8,9.5c-5.1-6-12.6-9.5-20.5-9.5h-21.5v137.7h49V87.8l35.2,40.3c5.1,6,12.6,9.5,20.5,9.5
+		h21.5V0H951z"></path>
+						<path fill="#FFFFFF" d="M354.7,0v49.7L319.4,9.5c-5.1-6-12.6-9.5-20.5-9.5h-21.5v137.7h49V87.8l35.2,40.3c5.1,6,12.6,9.5,20.5,9.5
+		h21.5V0H354.7z"></path>
+						<path fill="#FFFFFF" d="M531.6,17.9C527.8,7.2,517.7,0,506.3,0h-70v36.3h10.5l-35.2,101.3h50.6l7.2-20.8H516l7.2,20.9h50L531.6,17.9
+		z M492.6,49.6l10.8,31h-21.4L492.6,49.6z"></path>
+					</svg>
+				</span>
+				<ul class="u-list-dot-sep">
+					<li>
+						<a rel="nofollow" href="/contact?community_id=247">Contact</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/contact?community_id=247#sports_tips">Have a News Tip?</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://www.sbnation.com/blogs">Browse Blogs</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/masthead">About SBN</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://blog.sbnation.com">Company Blog</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://www.sbnation.com/pages/openings">Blog Openings</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="http://www.sbnation.com/guide/disclosure">Editorial Ethics and Guidelines</a>
+					</li>
+				</ul>
+				<a rel="nofollow" class="u-block" href="https://www.voxmedia.com">
+					<span class="u-hidden-text">Vox Media</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 254.42 33.54" aria-labelledby="title" aria-describedby="description" role="img" class="c-footer__vox-logo">
+						<title id="title">Vox Media</title>
+						<desc id="description">Vox Media logo.</desc>
+						<path d="M229.88,262.35a16.77,16.77,0,1,0,16.77,16.77,16.77,16.77,0,0,0-16.77-16.77m0,25.08a8.32,8.32,0,1,1,7.92-8.31,8.12,8.12,0,0,1-7.92,8.31" transform="translate(-179.16 -262.35)"></path>
+						<polygon points="0 0.66 16.97 33.38 33.95 0.66 24.05 0.66 17.07 14.31 10.09 0.66 0 0.66"></polygon>
+						<rect x="208.65" y="0.66" width="9" height="32.26"></rect>
+						<polygon points="170.15 8.74 170.15 0.66 145.41 0.66 145.41 32.92 170.15 32.92 170.15 24.84 154.82 24.84 154.82 20.68 169.01 20.68 169.01 12.91 154.82 12.91 154.82 8.74 170.15 8.74"></polygon>
+						<path d="M367.39,263H353.84v32.27h13.55a16.14,16.14,0,1,0,0-32.27m-.71,24.09h-3.74V271.19h3.74a8,8,0,1,1,0,15.91" transform="translate(-179.16 -262.35)"></path>
+						<polygon points="131.07 14.94 131.07 32.92 140.17 32.92 140.17 0.66 128.9 0.66 121.92 14.12 114.94 0.66 103.67 0.66 103.67 32.92 112.57 32.92 112.57 14.94 121.82 32.77 131.07 14.94"></polygon>
+						<polygon points="83.11 24.43 88.78 32.93 99.44 32.93 88.44 16.79 99.34 0.66 88.88 0.66 83.21 9.16 83.31 9.16 77.63 0.66 67.08 0.66 77.98 16.79 66.98 32.93 77.43 32.93 83.11 24.43"></polygon>
+						<path d="M412.55,284.07l4-11.53,4,11.53ZM422,263H411.38l-11.62,32.27h9l1.41-4.15H423l1.4,4.15h9.21Z" transform="translate(-179.16 -262.35)"></path>
+					</svg>
+				</a>
+				<ul class="u-list-dot-sep">
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/legal/terms-of-use">Terms of Use</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/legal/privacy-notice">Privacy Notice</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/legal/cookie-policy">Cookie Policy</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="/contact#donotsell">Do Not Sell or Share My Personal Info</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/pages/licensing">Licensing FAQ</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/legal/accessibility">Accessibility</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://status.voxmedia.com">Platform Status</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://www.voxmedia.com/vox-advertising">Advertise with us</a>
+					</li>
+					<li>
+						<a rel="nofollow" href="https://jobs.voxmedia.com">Jobs @ Vox Media</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="l-wrapper c-footer__wrapper">
+			<div class="c-footer__section c-footer__section-copy"> © 2023 <a rel="nofollow" href="https://www.voxmedia.com">Vox Media</a>, LLC. All Rights Reserved <br>
+				<p style="text-align: left; margin-top:20px">* 21+ (19+ CA-ONT) (18+ NH/WY). AZ, CO, CT, IL, IN, IA, KS, LA, (select parishes), MD, MI, NH, NJ, NY, OH, OR, PA, TN, VA, WV, WY, CA-ONT only. <br>Eligibility restrictions apply. Terms at draftkings.com/sportsbook. Gambling problem? Call 1-800-GAMBLER. Odds &amp; lines subject to change. </p>
+			</div>
+		</div>
+
+
+	</footer>
+
+</div>
+{{!-- /.viewport --}}
+
+
+{{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}
+<script
+	src="https://code.jquery.com/jquery-3.5.1.min.js"
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+	crossorigin="anonymous">
+</script>
+<script src="{{asset "js/ghost-dynamic-dropdown.js"}}"></script>
+<script src="{{asset "js/casper.js"}}"></script>
+<script>
+$(document).ready(function () {
+	// Mobile Menu Trigger
+	$('.gh-burger').click(function () {
+		$('body').toggleClass('gh-head-open');
+	});
+	// FitVids - Makes video embeds responsive
+	$(".gh-content").fitVids();
+
+	$(document).ready(function () {
+		ghost_dropdown({
+			targetElement: "nav.ul li",
+			hasChildrenClasses: "menu-item-has-children",
+			hasChildrenIcon:  "<svg width='19' height='10' viewBox='0 0 19 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1.74805 1.52002L9.54883 9.00002L17.3496 1.52002' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+			hasChildDetectText: "[has_child]",
+			submenuUlClasses: "ghost-submenu",
+			subitemDetectText: "[subitem]",
+			subitemLiClasses: "subitem",
+			multi_level: false,
+			mega_menu: false
+		});
+	});
+
+
+});
+</script>
+
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+
+</body>
+</html>
